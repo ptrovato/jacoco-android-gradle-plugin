@@ -37,7 +37,7 @@ class JacocoAndroidPlugin implements Plugin<ProjectInternal> {
   }
 
   private static Plugin findAndroidPluginOrThrow(PluginContainer plugins) {
-    Plugin plugin = plugins.findPlugin('android') ?: plugins.findPlugin('android-library')
+    Plugin plugin = plugins.findPlugin('android') ?: plugins.findPlugin('android-library') ?: plugins.findPlugin('com.android.dynamic-feature')
     if (!plugin) {
       throw new GradleException(
           'You must apply the Android plugin or the Android library plugin before using the jacoco-android plugin')
